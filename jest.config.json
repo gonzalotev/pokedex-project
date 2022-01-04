@@ -1,0 +1,15 @@
+{
+    "verbose": true,
+    "clearMocks": true,
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "src"],
+    "transform": {
+        "^.+\\.js$": "babel-jest",
+        "^.+\\.svg$": "<rootDir>/svgTransform.js",
+        ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    },
+    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup-after-env.js"],
+    "watchPlugins": ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"]
+}
