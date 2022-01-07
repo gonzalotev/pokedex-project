@@ -6,12 +6,12 @@ import * as types from 'store/pokedex/types';
 import PokedexService from 'services/pokedex';
 import { getPokemonsSuccess } from 'store/pokedex/actions';
 
-export function* getPokemons() {
+export function* getPokemons({ params }) {
   try {
-    const pokemons = yield call(PokedexService.getPokemons);
-    yield put(getPokemonsSuccess(pokemons));
+    const result = yield call(PokedexService.getPokemons, params);
+    yield put(getPokemonsSuccess(result.pokemons, result.total));
   } catch (error) {
-    yield put(actions.getPokemonsError(error.response?.message));
+    yield put(actions.getPokemonsError(error.response?.message || 'Se h generado un error'));
   }
 }
 
