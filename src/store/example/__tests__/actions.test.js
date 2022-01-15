@@ -1,5 +1,5 @@
-import * as actions from 'store/example/actions';
-import * as types from 'store/example/types';
+import * as actions from 'store/app/actions';
+import * as types from 'store/app/types';
 
 describe('getFiltersRequest', () => {
   const params = { roles: true };

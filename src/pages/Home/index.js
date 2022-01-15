@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
-  VStack, Heading, Text, Container, Button, Box, Image,
+  VStack, Heading, Text, Container, Button, Box, Image, Link,
 } from '@chakra-ui/react';
+import PokemonInfo from 'components/PokemonInfo';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemonsRequest } from 'store/pokedex/actions';
 import { getPokemons, getError } from '../../store/pokedex/selector';
@@ -19,24 +20,28 @@ const Home = () => {
   console.log(pokemons);
 
   return (
-    <VStack className="container">
+    <VStack>
       <Heading color="#000">POKEMONS</Heading>
-      <Container>
+      <div className="container">
         {pokemons.map((pokemon) => (
-          <Box key={pokemon?.id} className="card">
+          <div key={pokemon?.id} className="card">
             <Box className="face front">
+              <Heading size="small" textAlign="center">
+                N#:
+                {pokemon?.id}
+              </Heading>
               <Heading className="namePokemon">{pokemon?.name}</Heading>
               <Image src={pokemon?.image} alt="pokemon" className="imagePokemon" />
             </Box>
             <Box className="face back">
               <Heading className="namePokemon">{pokemon?.name}</Heading>
-              cosas de pokemon
+              <Link href="PokemonInfo">Info</Link>
             </Box>
-          </Box>
+          </div>
         ))}
-      </Container>
+      </div>
       <Text>{error}</Text>
-      <Button onClick={() => setSelectedPage(setSelectedPage + 1)}>Next</Button>
+      <Button color="black" onClick={() => setSelectedPage(setSelectedPage + 1)}>Next</Button>
     </VStack>
   );
 };
