@@ -1,4 +1,4 @@
-import * as types from '../pokedex/types';
+import * as types from './types';
 
 export const getStatsRequest = () => ({ type: types.GET_STATS_REQUEST });
 export const getStatsSuccess = (stats) => ({ type: types.GET_STATS_SUCCESS, stats });
